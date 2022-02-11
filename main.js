@@ -1,14 +1,13 @@
-let arrTask = ['掃除','買い物','散歩']; // タスクを管理する配列
-let Newtask; //これから登録するタスク
+const arrTask = ['掃除','買い物','散歩']; // タスクを管理する配列
 
-function inputTask(taskName) {
+const inputTask = (taskName) => {
     // タスク管理の配列に新タスクを追加
-    arrTask[arrTask.length] = taskName;
+    arrTask.push(taskName);
     showtask(); 
     alert('新しいタスクを追加しました。');
 }
 
-function showtask() {
+const showtask = () => {
     console.log('=============================');
     console.log('現在持っているタスクの一覧');
     console.log('=============================');
@@ -18,9 +17,9 @@ function showtask() {
 }
 
 showtask(); //最初に入っているタスクの表示
-while(Newtask !== null) {
-    Newtask = prompt('タスクを入力してください')   
-    if (Newtask !== null) { //タスクの追加(キャンセルをクリックした場合は無視)
-        inputTask(Newtask);
-    }
+let Newtask = prompt('タスクを入力してください');   
+if (Newtask !== null) { //タスクの追加(キャンセルをクリックした場合は追加しない)
+    inputTask(Newtask);
+} else {
+    alert('キャンセルが押されました。');
 }
